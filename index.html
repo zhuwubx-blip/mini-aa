@@ -270,6 +270,33 @@
 
         .link-pill:hover { border-color: #ccc; text-decoration: none; }
 
+        /* ── Gallery ── */
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+
+        .gallery-item:hover { transform: scale(1.02); }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+        }
+
+        @media (max-width: 500px) {
+            .gallery { grid-template-columns: 1fr; }
+        }
+
         /* ── Footer ── */
         footer {
             text-align: center;
@@ -297,6 +324,7 @@
         <h1>Mini <span>AA</span></h1>
         <nav>
             <a href="#download">Download</a>
+            <a href="#screenshots">Screenshots</a>
             <a href="#community">Community</a>
             <a href="https://ko-fi.com/mini_aa">Support</a>
         </nav>
@@ -310,7 +338,20 @@
 
     <!-- Screenshot -->
     <div class="shot">
-        <img src="image01.jpg" alt="Mini AA">
+        <img src="image01.png" alt="Mini AA">
+    </div>
+
+    <!-- Screenshots gallery -->
+    <div class="section" id="screenshots">
+        <h3>Screenshots</h3>
+        <div class="gallery">
+            <div class="gallery-item"><img src="screenshots/screen1.png" alt="Media player and weather"></div>
+            <div class="gallery-item"><img src="screenshots/screen2.png" alt="Trip history"></div>
+            <div class="gallery-item"><img src="screenshots/screen3.png" alt="Settings"></div>
+            <div class="gallery-item"><img src="screenshots/screen4.png" alt="App drawer"></div>
+            <div class="gallery-item"><img src="screenshots/screen5.png" alt="App embedding"></div>
+            <div class="gallery-item"><img src="screenshots/screen6.png" alt="Speed and trip summary"></div>
+        </div>
     </div>
 
     <!-- Download -->
