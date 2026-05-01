@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini AA — Android Car Launcher</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-29E92FHV71"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-29E92FHV71');
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -401,13 +409,13 @@
 
     <!-- Download -->
     <div id="download" class="downloads">
-        <a href="https://github.com/zhuwubx-blip/mini-aa/releases/latest/download/mini-aa-app-system-release.apk" class="dl-card">
+        <a href="https://github.com/zhuwubx-blip/mini-aa/releases/latest/download/mini-aa-app-system-release.apk" class="dl-card" onclick="gtag('event','download',{event_category:'apk',event_label:'system'})">
             <div class="dl-label">Full</div>
             <h3>System Build</h3>
             <p>AOSP-signed. PIP / app embedding. For Chinese head units.</p>
             <span class="dl-arrow">Download &darr;</span>
         </a>
-        <a href="https://github.com/zhuwubx-blip/mini-aa/releases/latest/download/mini-aa-app-standard-release.apk" class="dl-card">
+        <a href="https://github.com/zhuwubx-blip/mini-aa/releases/latest/download/mini-aa-app-standard-release.apk" class="dl-card" onclick="gtag('event','download',{event_category:'apk',event_label:'standard'})">
             <div class="dl-label">Universal</div>
             <h3>Standard Build</h3>
             <p>Any Android 10+ device. All features except PIP.</p>
