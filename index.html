@@ -309,9 +309,54 @@
             color: #bbb;
         }
 
+        /* ── Dark mode ── */
+        @media (prefers-color-scheme: dark) {
+            body { background: #111; color: #e0e0e0; }
+            a { color: #FF8C00; }
+            .head h1 { border-color: #e0e0e0; }
+            .head nav a { color: #888; }
+            .head nav a:hover { color: #e0e0e0; }
+            .intro p { color: #999; }
+            .shot { border-color: #333; box-shadow: 0 2px 24px rgba(0,0,0,0.3); }
+            .dl-card { border-color: #333; background: #1a1a1a; color: #e0e0e0; }
+            .dl-card:hover { border-color: #FF8C00; }
+            .dl-card p { color: #888; }
+            .dl-label { color: #FF8C00; }
+            .section h3 { color: #777; border-color: #333; }
+            .section p { color: #999; }
+            .feat { border-color: #222; }
+            .feat-text { color: #999; }
+            .feat-text strong { color: #e0e0e0; }
+            .step-n { background: #e0e0e0; color: #111; }
+            .step-t { color: #999; }
+            .step-t strong { color: #e0e0e0; }
+            .err { background: #1a1a1a; border-left-color: #FF8C00; }
+            .err code { color: #e0e0e0; }
+            .err span { color: #888; }
+            .donate { background: #1a1a1a; border-color: #333; }
+            .donate p { color: #999; }
+            .donate-btn { background: #FF8C00; color: #fff; }
+            .link-pill { border-color: #333; background: #1a1a1a; color: #999; }
+            .link-pill:hover { border-color: #555; }
+            .gallery-item { border-color: #333; box-shadow: 0 1px 8px rgba(0,0,0,0.2); }
+            footer { border-top-color: #333; }
+            footer p { color: #555; }
+            footer a { color: #777; }
+        }
+
+        /* ── Mobile ── */
         @media (max-width: 500px) {
             .shot { margin: 0 -12px 40px; border-radius: 8px; }
             .downloads { flex-direction: column; }
+            .head {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+            .head nav {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
