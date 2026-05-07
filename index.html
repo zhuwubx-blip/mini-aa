@@ -317,6 +317,56 @@
             color: #bbb;
         }
 
+        /* ── Compat table ── */
+        .compat-wrap {
+            border: 2px solid #FF8C00;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .compat-title {
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #999;
+            padding: 16px 16px 8px;
+            margin: 0;
+        }
+
+        .compat-note {
+            font-size: 13px;
+            color: #888;
+            padding: 10px 16px 16px;
+            margin: 0;
+        }
+
+        .compat {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .compat th {
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            color: #999;
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .compat td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            color: #555;
+        }
+
+        .compat td.yes { color: #4CAF50; font-weight: 600; }
+        .compat td.unk { color: #FF8C00; font-weight: 500; }
+        .compat td.no { color: #999; }
+
         /* ── Dark mode ── */
         @media (prefers-color-scheme: dark) {
             body { background: #111; color: #e0e0e0; }
@@ -347,6 +397,13 @@
             .link-pill { border-color: #333; background: #1a1a1a; color: #999; }
             .link-pill:hover { border-color: #555; }
             .gallery-item { border-color: #333; box-shadow: 0 1px 8px rgba(0,0,0,0.2); }
+            .compat-wrap { border-color: #FF8C00; }
+            .compat-title { color: #777; }
+            .compat-note { color: #777; }
+            .compat th { color: #777; border-bottom-color: #333; }
+            .compat td { color: #999; border-bottom-color: #222; }
+            .compat td.yes { color: #66BB6A; }
+            .compat td.unk { color: #FF8C00; }
             footer { border-top-color: #333; }
             footer p { color: #555; }
             footer a { color: #777; }
@@ -391,19 +448,34 @@
 
     <!-- Screenshot -->
     <div class="shot">
-        <img src="image01.png" alt="Mini AA">
+        <img src="home.png" alt="Mini AA">
+    </div>
+
+    <!-- Support -->
+    <div class="donate" id="support">
+        <p style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">Help keep Mini AA alive</p>
+        <p>Mini AA is built by a solo developer in Nairobi, Kenya. No company behind it, no ads, no data collection — just one person building the launcher they wished existed for their car. Every feature, every bug fix, every late night testing on different head units.</p>
+        <p style="margin-bottom: 16px;">Your support — even a single coffee — directly funds development time, testing devices, and keeps this project free for the entire community. It also tells me someone out there is actually using this thing.</p>
+        <a href="https://ko-fi.com/mini_aa" class="donate-btn">Support on Ko-fi</a>
     </div>
 
     <!-- Screenshots gallery -->
     <div class="section" id="screenshots">
         <h3>Screenshots</h3>
+                <!-- Screenshot -->
+    <div class="shot">
+        <img src="screenshots/settings.png" alt="Mini AA Settings">
+    </div>
+
+       <div class="shot">
+        <img src="screenshots/apps.png" alt="Mini AA Settings">
+    </div>
+
         <div class="gallery">
-            <div class="gallery-item"><img src="screenshots/screen1.png" alt="Media player and weather"></div>
-            <div class="gallery-item"><img src="screenshots/screen2.png" alt="Trip history"></div>
-            <div class="gallery-item"><img src="screenshots/screen3.png" alt="Settings"></div>
-            <div class="gallery-item"><img src="screenshots/screen4.png" alt="App drawer"></div>
-            <div class="gallery-item"><img src="screenshots/screen5.png" alt="App embedding"></div>
-            <div class="gallery-item"><img src="screenshots/screen6.png" alt="Speed and trip summary"></div>
+            <div class="gallery-item"><img src="screenshots/screen3.jpg" alt="Settings"></div>
+            <div class="gallery-item"><img src="screenshots/screen4.jpg" alt="App drawer"></div>
+            <div class="gallery-item"><img src="screenshots/screen5.jpg" alt="App embedding"></div>
+            <div class="gallery-item"><img src="screenshots/screen6.jpg" alt="Speed and trip summary"></div>
         </div>
     </div>
 
@@ -423,15 +495,55 @@
         </a>
     </div>
 
-    <!-- Features -->
+    <!-- What's New -->
     <div class="section">
-        <h3>Features</h3>
+        <h3>What's New — v0.2.0</h3>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Android 10–12 verified</strong> — system build tested and confirmed on Android 10, 11, and 12 head units</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Fullscreen expand button</strong> — tap the floating button to open PIP apps fullscreen on the main display</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Trip history calendar</strong> — collapsible calendar header, swipe-to-delete trips, date grouping</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Compact weather mode</strong> — weather strip overlaid on the media card for more screen space</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Independent units</strong> — separate speed (km/h or mph) and temperature (°C or °F) settings</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Default PIP app</strong> — set your preferred PIP app in settings, persists across restarts</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Responsive nav rail</strong> — compact mode for smaller head unit screens (7", BMW narrow)</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Custom backgrounds</strong> — set a background image with adjustable opacity</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Bug fixes</strong> — trip history crash fix, stale PIP state after fullscreen, media auto-launch reliability</div></div>
+    </div>
+
+    <!-- v0.1.0 -->
+    <div class="section">
+        <h3>v0.1.0 — Initial Release</h3>
         <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Media Player</strong> — auto-detects any music app, album art with color extraction</div></div>
         <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Weather</strong> — current conditions, high/low, OpenWeatherMap powered</div></div>
         <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Speedometer</strong> — GPS rolling odometer with glow bar and idle animations</div></div>
-        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Trip Recording</strong> — auto trip detection, calendar history, swipe to delete</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Trip Recording</strong> — auto trip detection with distance and duration tracking</div></div>
         <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>App Embedding</strong> — run Maps, Waze, YouTube inside the launcher (System only)</div></div>
-        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Configurable</strong> — panel ratio, grid, background, units, and more</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>App Drawer</strong> — grid layout with configurable rows and columns</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Nav Rail</strong> — pinned app shortcuts on the sidebar</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Status Bar</strong> — clock, location, speed summary, app/settings shortcuts</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Settings</strong> — panel ratio, grid size, weather API key, geocoder, debug logs</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Setup Wizard</strong> — guided first-run for launcher, notification access, and location permissions</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Dark Theme</strong> — full dark UI with orange accents, designed for driving</div></div>
+    </div>
+
+    <!-- Compatibility -->
+    <div class="compat-wrap">
+        <h3 class="compat-title">Compatibility</h3>
+        <table class="compat">
+            <thead>
+                <tr>
+                    <th>Android Version</th>
+                    <th>System Build</th>
+                    <th>Standard Build</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Android 10 (API 29)</td><td class="yes">Full support</td><td class="yes">Full support</td></tr>
+                <tr><td>Android 11 (API 30)</td><td class="yes">Full support</td><td class="yes">Full support</td></tr>
+                <tr><td>Android 12 (API 31)</td><td class="yes">Full support</td><td class="yes">Full support</td></tr>
+                <tr><td>Android 13+ (API 33+)</td><td class="unk">Untested</td><td class="yes">Full support</td></tr>
+            </tbody>
+        </table>
+        <p class="compat-note">System build requires AOSP platform keys (most Chinese head units). Standard build works on any device but without PIP app embedding.</p>
     </div>
 
     <!-- Setup -->
@@ -456,12 +568,6 @@
     <div class="section">
         <h3>Bug Reports</h3>
         <p>Settings &rarr; Debug &rarr; Share debug logs. No location data included. Share with your head unit model and Android version.</p>
-    </div>
-
-    <!-- Donate -->
-    <div class="donate" id="support">
-        <p>Mini AA is free and maintained by one developer.<br>If it's useful, consider supporting development.</p>
-        <a href="https://ko-fi.com/mini_aa" class="donate-btn">☕ Buy me a coffee</a>
     </div>
 
     <!-- Community -->
