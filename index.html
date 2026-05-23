@@ -289,7 +289,8 @@
         .gallery-item {
             border-radius: 10px;
             overflow: hidden;
-            border: 1px solid #e5e5e5;
+            border: none;
+            padding: 6px;
             box-shadow: 0 1px 8px rgba(0,0,0,0.06);
             transition: transform 0.2s;
         }
@@ -299,11 +300,35 @@
         .gallery-item img {
             width: 100%;
             display: block;
+            border-radius: 6px;
         }
 
         @media (max-width: 500px) {
             .gallery { grid-template-columns: 1fr; }
         }
+
+        /* ── Lightbox ── */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-overlay.active { display: flex; }
+
+        .lightbox-overlay img {
+            max-width: 95%;
+            max-height: 95%;
+            border-radius: 8px;
+            box-shadow: 0 4px 40px rgba(0,0,0,0.5);
+        }
+
+        .shot img, .gallery-item img { cursor: pointer; }
 
         /* ── Footer ── */
         footer {
@@ -473,11 +498,15 @@
         <img src="screenshots/apps.png" alt="Mini AA Settings">
     </div>
 
+           <div class="shot">
+        <img src="screenshots/screen5.png" alt="Mini AA Settings">
+    </div>
+
         <div class="gallery">
-            <div class="gallery-item"><img src="screenshots/screen3.jpg" alt="Settings"></div>
-            <div class="gallery-item"><img src="screenshots/screen4.jpg" alt="App drawer"></div>
-            <div class="gallery-item"><img src="screenshots/screen5.jpg" alt="App embedding"></div>
-            <div class="gallery-item"><img src="screenshots/screen6.jpg" alt="Speed and trip summary"></div>
+            <div class="gallery-item"><img src="screenshots/screen1.png" alt="Settings"></div>
+            <div class="gallery-item"><img src="screenshots/screen2.png" alt="App drawer"></div>
+            <div class="gallery-item"><img src="screenshots/screen3.png" alt="App embedding"></div>
+            <div class="gallery-item"><img src="screenshots/screen4.png" alt="Speed and trip summary"></div>
         </div>
     </div>
 
@@ -499,9 +528,23 @@
 
     <!-- What's New -->
     <div class="section">
-        <h3>What's New — v0.2.0</h3>
+        <h3>What's New — v0.3.0</h3>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Show/hide status bar</strong> — toggle in settings to hide the bottom bar and maximize screen space, with time and app drawer on the nav rail</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>M3 Expressive UI</strong> — accent color themes (Orange, Lime, Tomato, Butter, Wasabi, Amber, Tangerine) with dynamic theming across all components</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>In-app update checker</strong> — automatically checks GitHub for new releases, shows update card in settings with one-tap download</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>12/24 hour time format</strong> — configurable clock format for both status bar and nav rail</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Deep sleep recovery</strong> — auto-reconnects media sessions and recreates embedded views after overnight park</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Network type labels</strong> — WiFi, 4G, H+, 5G indicators on the nav rail with dimmed state when disconnected</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>GPS fix indicator</strong> — pulsing accent-colored dots while acquiring satellites</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Fullscreen app grid</strong> — apps launched from the grid now open fullscreen on the main display</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Firebase Analytics + Crashlytics</strong> — anonymous usage stats and automatic crash reporting</div></div>
+        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Bug fixes</strong> — volume indicator ghost trigger, bluetooth detection fallback, location icon update, media auto-launch after sleep, coroutine scope leaks, reflection caching for faster PIP switching</div></div>
+    </div>
+
+    <!-- v0.2.0 -->
+    <div class="section">
+        <h3>v0.2.0</h3>
         <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Android 10–12 verified</strong> — system build tested and confirmed on Android 10, 11, and 12 head units</div></div>
-        <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Fullscreen expand button</strong> — tap the floating button to open PIP apps fullscreen on the main display</div></div>
         <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Trip history calendar</strong> — collapsible calendar header, swipe-to-delete trips, date grouping</div></div>
         <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Compact weather mode</strong> — weather strip overlaid on the media card for more screen space</div></div>
         <div class="feat"><div class="feat-dot"></div><div class="feat-text"><strong>Independent units</strong> — separate speed (km/h or mph) and temperature (°C or °F) settings</div></div>
@@ -542,7 +585,7 @@
                 <tr><td>Android 10 (API 29)</td><td class="yes">Full support</td><td class="yes">Full support</td></tr>
                 <tr><td>Android 11 (API 30)</td><td class="yes">Full support</td><td class="yes">Full support</td></tr>
                 <tr><td>Android 12 (API 31)</td><td class="yes">Full support</td><td class="yes">Full support</td></tr>
-                <tr><td>Android 13+ (API 33+)</td><td class="unk">Untested</td><td class="yes">Full support</td></tr>
+                <tr><td>Android 13+ (API 33+)</td><td class="unk">Varies by device</td><td class="yes">Full support</td></tr>
             </tbody>
         </table>
         <p class="compat-note">System build requires AOSP platform keys (most Chinese head units). Standard build works on any device but without PIP app embedding.</p>
@@ -594,6 +637,19 @@
     </footer>
 
 </div>
+
+<div class="lightbox-overlay" id="lightbox" onclick="this.classList.remove('active')">
+    <img id="lightbox-img" src="" alt="Preview">
+</div>
+
+<script>
+document.querySelectorAll('.shot img, .gallery-item img').forEach(img => {
+    img.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('active');
+    });
+});
+</script>
 
 </body>
 </html>
